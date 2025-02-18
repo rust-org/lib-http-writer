@@ -1,0 +1,21 @@
+[package]
+edition = "2021"
+name = "http_writer"
+version = "0.1.1"
+authors = ["funh2029 <funh2029@outlook.com>"]
+description = "Convert any stream into a put request"
+repository = "https://github.com/rust-org/lib-http-writer"
+readme = "README.md"
+license = "MIT"
+keywords = ["writer", "tar", "http", "put", "xz"]
+
+[dependencies]
+reqwest = { version = ">=0.1.0", features = ["blocking"], optional = true }
+minreq = { version = ">=2.12.0", features = ["https", "urlencoding"], optional = true }
+percent-encoding = { version= ">=0.1.0", optional = true }
+indicatif = ">=0.1.0"
+
+[features]
+default = ["reqwest"]
+reqwest = ["dep:reqwest"]
+minreq = ["dep:minreq", "dep:percent-encoding"]
